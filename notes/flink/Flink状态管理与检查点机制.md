@@ -29,7 +29,7 @@
 
 ### 2.1 算子状态
 
-算子状态 (Operator State)：顾名思义，状态是和算子进行绑定的，一个算子的状态不能被其他算子所访问到。官方文档上对 Operator State 的解释是：*each operator state is bound to one parallel operator instance*，所以更为确切的说**一个算子状态是与一个并发的算子实例所绑定的**，即假设算子的并行度是 2，那么其应有两个对应的算子状态：
+算子状态 (Operator State)：顾名思义，**状态是和算子进行绑定的**，一个算子的状态不能被其他算子所访问到。官方文档上对 Operator State 的解释是：*each operator state is bound to one parallel operator instance*，所以更为确切的说**一个算子状态是与一个并发的算子实例所绑定的**，即假设算子的并行度是 2，那么其应有两个对应的算子状态：
 
 <div align="center"> <img width="500px" src="imgs/flink-operator-state.png"/> </div>
 
@@ -37,7 +37,7 @@
 
 ### 2.2 键控状态
 
-键控状态 (Keyed State) ：是一种特殊的算子状态，即状态是根据 key 值进行区分的，Flink 会为每类键值维护一个状态实例。如下图所示，每个颜色代表不同 key 值，对应四个不同的状态实例。需要注意的是键控状态只能在 `KeyedStream` 上进行使用，我们可以通过 `stream.keyBy(...)` 来得到 `KeyedStream` 。
+键控状态 (Keyed State) ：是一种特殊的算子状态，即**状态是根据 key 值进行区分的，Flink 会为每类键值维护一个状态实例**。如下图所示，每个颜色代表不同 key 值，对应四个不同的状态实例。需要注意的是键控状态只能在 `KeyedStream` 上进行使用，我们可以通过 `stream.keyBy(...)` 来得到 `KeyedStream` 。
 
 <div align="center"> <img src="imgs/flink-keyed-state.png"/> </div>
 
